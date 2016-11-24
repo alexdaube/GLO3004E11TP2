@@ -18,10 +18,10 @@ public class Circulation {
                 intersection.changerLumieres(commande);
             }
             else if (commande.estPourPieton()) {
-                voitures.faireActionVoiture(commande, intersection);
+            	pietons.faireActionPieton(commande, intersection);
             }
             else if (commande.estPourVoiture()) {
-                pietons.faireActionPieton(commande, intersection);
+            	voitures.faireActionVoiture(commande, intersection);
             }
             else {
                 System.out.println("Commande invalide : " + commande.reconstruireLaCommande());

@@ -1,0 +1,4 @@
+action_1,action_2,action_3,...,action_n		
+tous.rouge,pieton.arrive,tous.pieton,pieton.traverse			
+tous.rouge,est.vClignotant,est.arrive,est.tourneGauche,est.arrive,est.continue,est.vert
+tous.rouge,sud.vClignotant,sud.arrive,sud.tourneGauche,sud.arrive,sud.jaune,sud.rouge

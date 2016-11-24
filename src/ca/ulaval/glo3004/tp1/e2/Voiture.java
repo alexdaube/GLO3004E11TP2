@@ -4,16 +4,14 @@ public class Voiture {
 	private String from = "Voiture ";
     private String destination = "DESTINATION-";
     private String etat = "";
-
+    
+    public void setEtat(String etat) {
+    	this.etat = etat;
+    }
 
     public Voiture(String provenance) {
         etat = "arrive";
         this.from = this.from  + provenance + ": ";
-    }
-
-
-    public void start() {
-        System.out.println(this.from + " avec " + this.destination + " est creee");
     }
 
     public void tournerDroite() {
@@ -26,11 +24,6 @@ public class Voiture {
 
     public void continuer() {
         System.out.println(this.from + " continue...");
-    }
-
-    public void attendreDroitPassage() throws InterruptedException {
-        System.out.println(this.from + this.etat);
-        this.wait(5);
     }
 
     public void printEtat() {

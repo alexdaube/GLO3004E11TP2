@@ -12,6 +12,7 @@ public class Circulation {
     }
 
     public void execute(Commande commande) {
+    	System.out.println("Commande en cours: " + commande.reconstruireLaCommande());
         try {
             if(commande.estPourLumiere()) {
                 // if(commande.estPourLumierePieton()) ...
@@ -27,6 +28,7 @@ public class Circulation {
                 System.out.println("Commande invalide : " + commande.reconstruireLaCommande());
             }
         } catch (CommandeNonCompleteException e) {
+        	
             System.out.println(e.getMessage());
         }
         printEtatSysteme();
@@ -37,5 +39,6 @@ public class Circulation {
         intersection.printEtatLumieres();
         voitures.printEtatVoitures();
         pietons.printEtatPietons();
+        System.out.println("\n");
     }
 }

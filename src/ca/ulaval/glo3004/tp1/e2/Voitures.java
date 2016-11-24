@@ -10,6 +10,7 @@ public class Voitures {
     private static final String IMPOSSIBLE_DROITE = "Impossible de tourner à droite à partir ";
     private static final String IMPOSSIBLE_GAUCHE = "Impossible de tourner à gauche à partir ";
     private static final String IMPOSSIBLE_CONTINUE = "Impossible de continuer à partir ";
+    private static final String IMPOSSIBLE_ATTENDRE = "Impossible d'attendre à partir ";
 
     private Queue<Voiture> estVoitures = new LinkedList<Voiture>();
     private Queue<Voiture> ouestVoitures = new LinkedList<Voiture>();
@@ -34,8 +35,8 @@ public class Voitures {
             creerVoiture(commande.getDirection());
         }
         if (commande.getAction().equals("attendV")) {
-            // Doit checker si il y a une voiture dans la queue approprié
-            // Change le status de la voiture pour attend si oui, si non throw l'erreur
+        	verifieVoituresPresente(commande, IMPOSSIBLE_ATTENDRE);
+        	faireAttendre();
         }
         if (commande.getAction().equals("tourneDroite")) {
             tournerADroite(commande, intersection);
@@ -48,17 +49,30 @@ public class Voitures {
         }
     }
 
+    private void faireAttendre() {
+    	if (direction.equals("est")) {
+            estVoitures.peek().setEtat("attend");
+        }
+        if (direction.equals("ouest")) {
+        	ouestVoitures.peek().setEtat("attend");
+        }
+        if (direction.equals("sud")) {
+            sudVoitures.peek().setEtat("attend");
+        }
+	}
 
-    private void tournerADroite(Commande commande, Intersection intersection) throws CommandeNonCompleteException {
+	private void tournerADroite(Commande commande, Intersection intersection) throws CommandeNonCompleteException {
         verifieVoituresPresente(commande, IMPOSSIBLE_DROITE);
         if (commande.getDirection().equals("est")) {
             throw new CommandeNonCompleteException(IMPOSSIBLE_DROITE + "de l'est.");
         }
         if (commande.getDirection().equals("ouest")) {
             tournerADroiteOuest(intersection);
+            ouestVoitures.poll();
         }
         if (commande.getDirection().equals("sud")) {
             tournerADroiteSud(intersection);
+            sudVoitures.poll();
         }
     }
 
@@ -88,12 +102,14 @@ public class Voitures {
         verifieVoituresPresente(commande, IMPOSSIBLE_GAUCHE);
         if (commande.getDirection().equals("est")) {
             tournerAGaucheEst(intersection);
+            estVoitures.poll();
         }
         if (commande.getDirection().equals("ouest")) {
             throw new CommandeNonCompleteException(IMPOSSIBLE_GAUCHE + "de l'ouest.");
         }
         if (commande.getDirection().equals("sud")) {
             tournerAGaucheSud(intersection);
+            sudVoitures.poll();
         }
     }
 
@@ -123,9 +139,11 @@ public class Voitures {
         verifieVoituresPresente(commande, IMPOSSIBLE_CONTINUE);
         if (commande.getDirection().equals("est")) {
             continuerDeEst(intersection);
+            estVoitures.poll();
         }
         if (commande.getDirection().equals("ouest")) {
             continuerDeOuest(intersection);
+            ouestVoitures.poll();
         }
         if (commande.getDirection().equals("sud")) {
             throw new CommandeNonCompleteException(IMPOSSIBLE_CONTINUE + "du sud.");

@@ -12,3 +12,6 @@ Voici un résumé:
 4. C'est tout! Ceci va faire en sorte que les fichiers appropriés soient créer.
 
 *La raison pourquoi il n'est pas une bonne idée de tracker des fichiers comme des .classpath, .project, ou .settings avec git, c'est que ça crée plein de conflits pour rien... Vaut mieux éviter. Quand ça sera le temps de remttre, on aura qu'à zipper localement...
+
+
+P.S.: J'ai bloqué le master, car dans mon expérience c'est pas une bonne chose de tous pushé dessus. Utiliser des branches pour faire du travail et faite des pull requests. 

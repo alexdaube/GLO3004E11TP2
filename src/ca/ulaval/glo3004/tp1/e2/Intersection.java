@@ -15,9 +15,9 @@ public class Intersection {
     }
 
     public EtatIntersection getEtatIntersection() {
-            String etatEst = lumiereEst.getCouleur().substring(0, 0);
-            String etatOuest = lumiereOuest.getCouleur().substring(0, 0);
-            String etatSud = lumiereSud.getCouleur().substring(0, 0);
+            String etatEst = lumiereEst.getCouleur().substring(0, 1);
+            String etatOuest = lumiereOuest.getCouleur().substring(0, 1);
+            String etatSud = lumiereSud.getCouleur().substring(0, 1);
             String etat = etatEst.concat(etatOuest).concat(etatSud).toUpperCase();
             return EtatIntersection.valueOf(etat);
     }

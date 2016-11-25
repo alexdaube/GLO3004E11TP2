@@ -11,7 +11,7 @@ public enum EtatIntersection {
     RRV,
     VRR,
     RVR,
-    PIETON
+    PPP
     //CRJ,
     //JRJ,
     //RRJ,

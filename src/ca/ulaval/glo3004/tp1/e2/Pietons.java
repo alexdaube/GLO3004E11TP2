@@ -33,7 +33,8 @@ public class Pietons {
             creerPieton();
         }
         if (commande.getAction().equals("attend")) {
-            // ...
+        	verifiePietonPresent();
+        	pietons.peek().setEtat("attend");
         }
         if (commande.getAction().equals("traverse")) {
             faireTraverser(intersection);
@@ -42,24 +43,23 @@ public class Pietons {
 
     private void faireTraverser(Intersection intersection) throws CommandeNonCompleteException {
         verifiePietonPresent();
-        if (peutTraverser(intersection)) {
-            //...
-        }
+        peutTraverser(intersection);
+        pietons.poll();
     }
 
     private boolean peutTraverser(Intersection intersection) throws CommandeNonCompleteException {
         switch (intersection.getEtatIntersection()) {
             case RRR:
-            case PIETON:
+            case PPP:
                 return true;
             default:
-                throw new CommandeNonCompleteException("Ne peut pas traverser...");
+                throw new CommandeNonCompleteException("Ne peut pas traverser.");
         }
     }
 
     private void verifiePietonPresent() throws CommandeNonCompleteException {
         if (pietons.isEmpty()) {
-            throw new CommandeNonCompleteException("Aucun pieton présent...");
+            throw new CommandeNonCompleteException("Aucun pieton présent.");
         }
     }
 }

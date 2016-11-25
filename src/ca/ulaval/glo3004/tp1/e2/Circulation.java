@@ -15,7 +15,6 @@ public class Circulation {
     	System.out.println("Commande en cours: " + commande.reconstruireLaCommande());
         try {
             if(commande.estPourLumiere()) {
-                // if(commande.estPourLumierePieton()) ...
                 intersection.changerLumieres(commande);
             }
             else if (commande.estPourPieton()) {
@@ -35,7 +34,7 @@ public class Circulation {
     }
 
     private void printEtatSysteme() {
-        System.out.println("Voici l'état courant du système:");
+        System.out.println("\nVoici l'état courant du système:");
         intersection.printEtatLumieres();
         voitures.printEtatVoitures();
         pietons.printEtatPietons();

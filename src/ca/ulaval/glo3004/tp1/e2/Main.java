@@ -11,24 +11,43 @@ public class Main {
         File file = new File("sample.txt");
         Parser parser = new Parser();
         List<List<String>> simulations = parser.parse(file, "txt");
-
-        int numeroTest = getDemanderNumeroTest(simulations);
-
-        Circulation circulation = new Circulation();
-
-        for (String action : simulations.get(numeroTest)) {
-            Commande commande = new Commande(action);
-            circulation.execute(commande);
+        Scanner reader = new Scanner(System.in);
+        boolean programmeRoule = true; 
+        
+        while (programmeRoule) {
+        	int numeroTest = getDemanderNumeroTest(simulations, reader);
+            Circulation circulation = new Circulation();
+            
+            for (String action : simulations.get(numeroTest)) {
+                Commande commande = new Commande(action);
+                circulation.execute(commande);
+            }
+            
+            programmeRoule = demanderSortie(reader);
         }
+        
+        System.out.println("L'application ne roule plus! Ciao!");
+        reader.close();
+        System.exit(0);
      }
+	
+	private static boolean demanderSortie(Scanner reader) {
+		System.out.println("'q' ou 'quitter' pour sortir de l'application. Appuyez sur une autre touche pour continuer :\n");
+		try {
+			reader.nextLine();
+			String input = reader.nextLine().toLowerCase();
+			return (input.equals("quitter") || input.equals("q")) ? false : true;
+		} catch (Exception e) {
+			return true;
+		}
+	}
 
-     private static int getDemanderNumeroTest(List<List<String>> simulations) {
+     private static int getDemanderNumeroTest(List<List<String>> simulations, Scanner reader) {
          int numeroTest = 0;
          boolean valeurNonEnregistre = true;
-         Scanner reader = new Scanner(System.in);
          while (valeurNonEnregistre) {
              try{
-                 System.out.println("Entrez le numéro du test à rouler: ");
+                 System.out.println("Entrez le numéro du test à rouler: \n");
                  numeroTest = reader.nextInt();
                  if (numeroTest >= 0 && numeroTest < simulations.size()) {
                      valeurNonEnregistre = false;
@@ -37,8 +56,6 @@ public class Main {
                  }
              } catch (InputMismatchException e) {
                  System.out.println("La valeur entrée doit être une valeur numérique entière positive.");
-             } finally {
-                 reader.close();
              }
          }
          return numeroTest;

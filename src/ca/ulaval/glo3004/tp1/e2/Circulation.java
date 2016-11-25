@@ -24,10 +24,11 @@ public class Circulation {
             	voitures.faireActionVoiture(commande, intersection);
             }
             else {
-                System.out.println("Commande invalide : " + commande.reconstruireLaCommande());
+                throw new CommandeNonCompleteException("Commande invalide : " + commande.reconstruireLaCommande());
             }
+            System.out.println("La commande a été effectuée avec succès!");
         } catch (CommandeNonCompleteException e) {
-        	
+        	System.out.println("La commande n'a pas été effectuée avec succès.");
             System.out.println(e.getMessage());
         }
         printEtatSysteme();

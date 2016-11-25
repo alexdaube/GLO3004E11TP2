@@ -1,7 +1,6 @@
 package ca.ulaval.glo3004.tp1.e2;
 
 public class Pieton {
-	private boolean isWaiting = true;
     private String etat = "arrive";
 
     public void setEtat(String nouvelleEtat) {

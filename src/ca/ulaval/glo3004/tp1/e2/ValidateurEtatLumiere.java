@@ -1,7 +1,13 @@
 package ca.ulaval.glo3004.tp1.e2;
 
 public class ValidateurEtatLumiere {
-	public boolean validateEst(CouleurLumiere couleurLumiere, EtatIntersection etatCourant) {
+	public static final String IMPOSSIBLE_CLIGNOTANT = "Impossible de passer au vert clignotant pour la lumière ";
+	public static final String IMPOSSIBLE_VERT = "Impossible de passer au vert pour la lumière ";
+	public static final String IMPOSSIBLE_ROUGE = "Impossible de passer au rouge pour la lumière ";
+	public static final String IMPOSSIBLE_PIETON = "Impossible de passer à la lumière pieton";
+	public static final String IMPOSSIBLE_GENERAL = "Impossible changer la lumière ";
+	
+	public boolean validateEst(CouleurLumiere couleurLumiere, EtatIntersection etatCourant) throws CommandeNonCompleteException{
         switch (couleurLumiere) {
             case CLIGNOTANT:
                 if (etatCourant == EtatIntersection.VRV || etatCourant == EtatIntersection.RRR ||
@@ -9,27 +15,26 @@ public class ValidateurEtatLumiere {
                         etatCourant == EtatIntersection.CRR) {
                     return true;
                 } else {
-                    return false;
+                    throw new CommandeNonCompleteException(IMPOSSIBLE_CLIGNOTANT + "est");
                 }
             case ROUGE:
                 if (etatCourant == EtatIntersection.VVR || etatCourant == EtatIntersection.VRV) {
                     return true;
                 } else {
-                    return false;
+                	throw new CommandeNonCompleteException(IMPOSSIBLE_ROUGE + "est");
                 }
             case VERT:
-                return !(etatCourant == EtatIntersection.RRC);
-//                if (etatCourant == EtatIntersection.RRC) {
-//                    return false;
-//                } else {
-//                    return true;
-//                }
+                if (etatCourant == EtatIntersection.RRC) {
+                	throw new CommandeNonCompleteException(IMPOSSIBLE_VERT + "est");
+                } else {
+                    return true;
+                }
             default:
-                return false;
+            	throw new CommandeNonCompleteException(IMPOSSIBLE_GENERAL + "est");
         }
     }
 
-    public boolean validateOuest(CouleurLumiere couleurLumiere, EtatIntersection etatCourant) {
+    public boolean validateOuest(CouleurLumiere couleurLumiere, EtatIntersection etatCourant) throws CommandeNonCompleteException {
         switch (couleurLumiere) {
             case ROUGE:
                 return true;
@@ -38,21 +43,23 @@ public class ValidateurEtatLumiere {
                         etatCourant == EtatIntersection.VRR || etatCourant == EtatIntersection.RVR) {
                     return true;
                 } else {
-                    return false;
+                	throw new CommandeNonCompleteException(IMPOSSIBLE_VERT + "ouest");
                 }
+            case CLIGNOTANT:
+            	throw new CommandeNonCompleteException(IMPOSSIBLE_CLIGNOTANT + "ouest");
             default:
-                return false;
+            	throw new CommandeNonCompleteException(IMPOSSIBLE_GENERAL + "ouest");
         }
     }
 
-    public boolean validateSud(CouleurLumiere couleurLumiere, EtatIntersection etatCourant) {
+    public boolean validateSud(CouleurLumiere couleurLumiere, EtatIntersection etatCourant) throws CommandeNonCompleteException {
         switch (couleurLumiere) {
             case CLIGNOTANT:
                 if (etatCourant == EtatIntersection.RRV || etatCourant == EtatIntersection.RRR ||
                         etatCourant == EtatIntersection.RRC) {
                     return true;
                 } else {
-                    return false;
+                	throw new CommandeNonCompleteException(IMPOSSIBLE_CLIGNOTANT + "sud");
                 }
             case ROUGE:
                     return true;
@@ -62,14 +69,13 @@ public class ValidateurEtatLumiere {
                         etatCourant == EtatIntersection.RRC || etatCourant == EtatIntersection.CRV) {
                     return true;
                 } else {
-                    return false;
-                }
+                	throw new CommandeNonCompleteException(IMPOSSIBLE_VERT + "sud");                }
             default:
-                return false;
+            	throw new CommandeNonCompleteException(IMPOSSIBLE_GENERAL + "sud");
         }
     }
 
-    public boolean validateTous(CouleurLumiere couleurLumiere, EtatIntersection etatCourant) {
+    public boolean validateTous(CouleurLumiere couleurLumiere, EtatIntersection etatCourant) throws CommandeNonCompleteException {
         switch (couleurLumiere) {
             case ROUGE:
                 return true;
@@ -77,10 +83,10 @@ public class ValidateurEtatLumiere {
                 if (etatCourant == EtatIntersection.RRR) {
                     return true;
                 } else {
-                    return false;
+                	throw new CommandeNonCompleteException(IMPOSSIBLE_PIETON);
                 }
             default:
-                return false;
+            	throw new CommandeNonCompleteException(IMPOSSIBLE_GENERAL + "tous");
         }
     }
 }

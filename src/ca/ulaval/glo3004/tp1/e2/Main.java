@@ -32,7 +32,7 @@ public class Main {
      }
 	
 	private static boolean demanderSortie(Scanner reader) {
-		System.out.println("'q' ou 'quitter' pour sortir de l'application. Appuyez sur une autre touche pour continuer :\n");
+		System.out.println("'q' ou 'quitter' pour sortir de l'application. Appuyez sur une autre touche pour continuer : ");
 		try {
 			reader.nextLine();
 			String input = reader.nextLine().toLowerCase();
@@ -47,7 +47,7 @@ public class Main {
          boolean valeurNonEnregistre = true;
          while (valeurNonEnregistre) {
              try{
-                 System.out.println("Entrez le numéro du test à rouler: \n");
+                 System.out.println("Entrez le numéro du test à rouler (Chiffre entre 0 et " + (simulations.size() - 1) +"): ");
                  numeroTest = reader.nextInt();
                  if (numeroTest >= 0 && numeroTest < simulations.size()) {
                      valeurNonEnregistre = false;
@@ -56,6 +56,7 @@ public class Main {
                  }
              } catch (InputMismatchException e) {
                  System.out.println("La valeur entrée doit être une valeur numérique entière positive.");
+                 reader.next();
              }
          }
          return numeroTest;

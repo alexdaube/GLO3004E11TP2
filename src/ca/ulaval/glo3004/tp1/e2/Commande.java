@@ -22,7 +22,7 @@ public class Commande {
 	    }
 
 	    public String reconstruireLaCommande() {
-	        return direction.concat(".").concat(action);
+		return direction.concat(".").concat(action);
 	    }
 
 	    public boolean estValide() {

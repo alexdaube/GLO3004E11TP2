@@ -38,14 +38,14 @@ public class Intersection {
 
 	private void handleDirectionEst(String action) throws CommandeNonCompleteException {
 		CouleurLumiere couleurLumiere = CouleurLumiere.valueOf(action.toUpperCase());
-        validateurEtatLumiere.validateEst(couleurLumiere, getEtatIntersection());
-        this.lumiereEst.changerPour(couleurLumiere);
-    }
+		validateurEtatLumiere.validateEst(couleurLumiere, getEtatIntersection());
+		this.lumiereEst.changerPour(couleurLumiere);
+	}
 
 	private void handleDirectionOuest(String action) throws CommandeNonCompleteException {
 		CouleurLumiere couleurLumiere = CouleurLumiere.valueOf(action.toUpperCase());
 		validateurEtatLumiere.validateOuest(couleurLumiere, getEtatIntersection());
-		this.lumiereOuest.changerPour(couleurLumiere);	
+		this.lumiereOuest.changerPour(couleurLumiere);
 	}
 
 	private void handleDirectionSud(String action) throws CommandeNonCompleteException {

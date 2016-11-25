@@ -14,7 +14,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-
+.idea/
+GLO3004E11TP2.iml
 # Eclipse Core
 .project
 

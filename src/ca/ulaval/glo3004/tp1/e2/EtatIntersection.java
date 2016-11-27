@@ -11,10 +11,13 @@ public enum EtatIntersection {
     RRV,
     VRR,
     RVR,
-    PPP
-    //CRJ,
-    //JRJ,
-    //RRJ,
-    //VRJ,
-    //JJR,
+    PPP,
+    // Les cas jaune
+    CRJ,
+    JRJ,
+    RRJ,
+    VRJ,
+    JJR,
+    VJR,
+    JVR
 }

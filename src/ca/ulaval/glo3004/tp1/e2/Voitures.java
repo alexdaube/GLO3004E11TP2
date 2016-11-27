@@ -118,6 +118,7 @@ public class Voitures {
 		case VRR:
 		case CRV:
 		case CRR:
+		case CRJ:
 			return true;
 		default:
 			throw new CommandeNonCompleteException(IMPOSSIBLE_GAUCHE + "de l'est.");
@@ -156,6 +157,7 @@ public class Voitures {
 		case VRV:
 		case VVR:
 		case VRR:
+		case VRJ:
 			return true;
 		default:
 			throw new CommandeNonCompleteException(IMPOSSIBLE_CONTINUE + "de l'est.");
@@ -191,13 +193,13 @@ public class Voitures {
 	}
 
 	private void verifieVoiturePresenteOuest(String message) throws CommandeNonCompleteException {
-		if (estVoitures.isEmpty()) {
+		if (ouestVoitures.isEmpty()) {
 			throw new CommandeNonCompleteException(AUCUNE_VOITURE_MESSAGE + "de l'ouest. " + message);
 		}
 	}
 
 	private void verifieVoiturePresenteSud(String message) throws CommandeNonCompleteException {
-		if (estVoitures.isEmpty()) {
+		if (sudVoitures.isEmpty()) {
 			throw new CommandeNonCompleteException(AUCUNE_VOITURE_MESSAGE + "du sud. " + message);
 		}
 	}

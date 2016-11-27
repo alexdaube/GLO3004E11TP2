@@ -1,3 +1,7 @@
-tous.rouge,pieton.arrive,tous.pieton,pieton.traverse			
-tous.rouge,est.vClignotant,est.arrive,est.tourneGauche,est.arrive,est.continue,est.vert
-tous.rouge,sud.vClignotant,est.arrive,est.tourneGauche,est.vClignotant,sud.jaune,sud.rouge
+tous.rouge,est.vClignotant,est.arrive,est.attendV,est.continue,sud.vert,est.arrive,est.continue,sud.jaune,sud.rouge,est.vert,est.arrive,est.attendV,est.continue,ouest.vert,est.arrive,est.continue,ouest.jaune,est.jaune,tous.rouge
+est.vClignotant,est.arrive,pieton.arrive,est.tourneGauche,sud.vert,est.arrive,est.tourneGauche,sud.jaune,est.arrive,est.tourneGauche
+est.vClignotant,est.vert,pieton.arrive,ouest.vert,ouest.arrive,ouest.continue
+est.vClignotant,est.vert,ouest.arrive,ouest.attendV,ouest.vert,ouest.tourneDroite
+sud.vClignotant,sud.arrive,sud.tourneDroite,sud.vert,sud.arrive,sud.tourneDroite,sud.jaune,sud.rouge,est.vClignotant,sud.vert,sud.arrive,sud.tourneDroite,sud.jaune,sud.rouge
+sud.vClignotant,sud.arrive,sud.tourneGauche,sud.vert
+tous.rouge,pieton.arrive,pieton.traverse

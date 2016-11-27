@@ -1,0 +1,22 @@
+Afin de faire fonctionner notre programme, veuillez écrire des commandes respectants les forme ci-dessous
+dans le fichier "sample.txt". Ce fichier est lu et exécuté par notre programme. Écrivez un cas de test par ligne.
+Les instructions sont séparées par des virgules et aucun espace n'est nécessaire. Le fichier contient déjà les cas
+de tests de base. Le fait d'ajouter des cas augmentera le nombre de choix possible dans le menu principal de l'application.
+
+
+Une commande de lumière est construite de la façon: "DIRECTIONS_LUMIERES.LUMIERES"
+	DIRECTIONS_LUMIERES = ("est", "ouest", "sud", "tous");
+	LUMIERES = ("rouge", "jaune", "vert", "vClignotant");
+		exemples: sud.rouge, est.vClignotant
+
+
+Une commande de piéton est construite de la façon: "PIETONS_ACTIONS.PIETON"
+	PIETON = "pieton";
+	PIETONS_ACTIONS = ("arrive", "attend", "traverse");
+		exemple: pieton.arrive
+
+
+Une commande de voiture est construite de la façon: "DIRECTIONS_VOITURES.VOITURES_ACTIONS"
+	DIRECTIONS_VOITURES = ("est", "ouest", "sud");
+	VOITURES_ACTIONS = ("attendV", "arrive", "tourneDroite", "tourneGauche", "continue");
+		exemples: est.arrive, sud.tourneDroite

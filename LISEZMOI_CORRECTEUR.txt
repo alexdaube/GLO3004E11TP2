@@ -1,3 +1,5 @@
+Travail ralis par lÕquipe  11: Alexandre Dsilets-Aub, Philippe Jobin-Lessard, Xavier Kedzierski Elgstrand
+
 Afin de faire fonctionner notre programme, veuillez écrire des commandes respectants les forme ci-dessous
 dans le fichier "sample.txt". Ce fichier est lu et exécuté par notre programme. Écrivez un cas de test par ligne.
 Les instructions sont séparées par des virgules et aucun espace n'est nécessaire. Le fichier contient déjà les cas

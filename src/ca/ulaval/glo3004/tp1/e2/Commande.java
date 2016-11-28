@@ -16,7 +16,7 @@ public class Commande {
 	    private String action;
 
 	    public Commande(String command) {
-	        String[] actions = command.split(Pattern.quote("."));
+	        String[] actions = command.trim().split(Pattern.quote("."));
 	        direction = actions[0];
 	        action = actions[1].equals("vClignotant") ? "clignotant" : actions[1];
 	    }

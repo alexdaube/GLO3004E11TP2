@@ -18,18 +18,6 @@ public class Voitures {
 
 	private List<String> direction = Arrays.asList("est", "ouest", "sud", "tous");
 
-	public Queue<Voiture> getEstVoitures() {
-		return estVoitures;
-	}
-
-	public Queue<Voiture> getOuestVoitures() {
-		return ouestVoitures;
-	}
-
-	public Queue<Voiture> getSudVoitures() {
-		return sudVoitures;
-	}
-
 	public void faireActionVoiture(Commande commande, Intersection intersection) throws CommandeNonCompleteException {
 		if (commande.getAction().equals("arrive")) {
 			creerVoiture(commande.getDirection());

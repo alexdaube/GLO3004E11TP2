@@ -21,7 +21,6 @@ public class Circulation extends Thread {
             this.execute(commande);
             printEtatSysteme();
         }
-        return;
     }
 
     public void execute(Commande commande) {

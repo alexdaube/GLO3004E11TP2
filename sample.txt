@@ -1,3 +1,5 @@
+tous.rouge, est.arrive, est.continue, est.vClignotant
+tous.rouge, est.arrive, ouest.arrive, sud.arrive, ouest.tourneDroite, est.continue, ouest.vert, est.vert
 tous.rouge,est.vClignotant,est.arrive,est.attendV,est.continue,sud.vert,est.arrive,est.continue,sud.jaune,sud.rouge,est.vert,est.arrive,est.attendV,est.continue,ouest.vert,est.arrive,est.continue,ouest.jaune,est.jaune,tous.rouge
 est.vClignotant,est.arrive,pieton.arrive,est.tourneGauche,sud.vert,est.arrive,est.tourneGauche,sud.jaune,est.arrive,est.tourneGauche
 est.vClignotant,est.vert,pieton.arrive,ouest.vert,ouest.arrive,ouest.continue

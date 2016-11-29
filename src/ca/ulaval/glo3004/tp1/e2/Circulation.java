@@ -8,7 +8,6 @@ public class Circulation extends Thread {
     private Intersection intersection;
     private List<String> commandes;
     private List<Commande> commandesEnAttente = new ArrayList<>();
-    private List<Commande> pietonEnAttente = new ArrayList<>();
 
     public Circulation(List<String> commandes) {
         intersection = new Intersection();
@@ -31,7 +30,6 @@ public class Circulation extends Thread {
         try {
             if (commande.estPourLumiere()) {
                 intersection.changerLumieres(commande);
-
                 if (!commandesEnAttente.isEmpty()) {
                     for (Commande com : commandesEnAttente) {
                         if (com.estPourVoiture()) {
@@ -70,18 +68,21 @@ public class Circulation extends Thread {
             System.out.println(e.getMessage());
         }
         if (!successfull.isEmpty()) {
-            for (Commande com : successfull) {
-                if (com.estPourVoiture()) {
-                    System.out.println("Les voitures bougent!");
-                    System.out.println(com.reconstruireLaCommande() + " a ete effectue");
-                } else if (com.estPourPieton()) {
-                    System.out.println("Les pietons bougent!");
-                    System.out.println(com.reconstruireLaCommande() + " a ete effectue");
-                }
-
-            }
-            commandesEnAttente.removeAll(successfull);
+            printCommandeReussies(successfull);
         }
+    }
+
+    private void printCommandeReussies(List<Commande> commandeReussie) {
+        for (Commande com : commandeReussie) {
+            if (com.estPourVoiture()) {
+                System.out.println("\nLes voitures bougent!");
+                System.out.println("La commande " + com.reconstruireLaCommande() + " a été effectuée");
+            } else if (com.estPourPieton()) {
+                System.out.println("\nLes pietons bougent!");
+                System.out.println("La commande " + com.reconstruireLaCommande() + " a été effectuée");
+            }
+        }
+        commandesEnAttente.removeAll(commandeReussie);
     }
 
     private void printEtatSysteme() {

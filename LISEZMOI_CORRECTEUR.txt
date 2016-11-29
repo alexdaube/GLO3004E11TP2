@@ -1,24 +1,25 @@
 Travail réalisé par l’équipe  11: Alexandre Désilets-Aubé, Philippe Jobin-Lessard, Xavier Kedzierski Elgstrand
 
-Afin de faire fonctionner notre programme, veuillez Ècrire des commandes respectants les forme ci-dessous
-dans le fichier "sample.txt". Ce fichier est lu et exÈcutÈ par notre programme. …crivez un cas de test par ligne.
-Les instructions sont sÈparÈes par des virgules et aucun espace n'est nÈcessaire. Le fichier contient dÈj‡ les cas
+Afin de faire fonctionner notre programme, veuillez écrire des commandes respectants les forme ci-dessous
+dans le fichier "sample.txt". Ce fichier est lu et exécuté par notre programme. Écrivez un cas de test par ligne.
+Les instructions sont séparées par des virgules et aucun espace n'est nécessaire. Le fichier contient déjà les cas
 de tests de base. Le fait d'ajouter des cas augmentera le nombre de choix possible dans le menu principal de l'application.
 
+Il est important de noter que notre système change l’état des voitures ou piétons si la commande ne peut être effectuée. Par exemple, si tous les feux sont rouge et qu’une commande est.tourneGauche est reçue, la voiture provenant de l’est verra son état changé pour “attente”. Au prochain changement de lumière, si la lumière est verte, son état changera selon sa direction.
 
-Une commande de lumiËre est construite de la faÁon: "DIRECTIONS_LUMIERES.LUMIERES"
+Une commande de lumière est construite de la façon: "DIRECTIONS_LUMIERES.LUMIERES"
 	DIRECTIONS_LUMIERES = ("est", "ouest", "sud", "tous");
 	LUMIERES = ("rouge", "jaune", "vert", "vClignotant");
 		exemples: sud.rouge, est.vClignotant
 
 
-Une commande de piÈton est construite de la faÁon: "PIETONS_ACTIONS.PIETON"
+Une commande de pièton est construite de la façon: "PIETON.PIETONS_ACTIONS”
 	PIETON = "pieton";
 	PIETONS_ACTIONS = ("arrive", "attend", "traverse");
 		exemple: pieton.arrive
 
 
-Une commande de voiture est construite de la faÁon: "DIRECTIONS_VOITURES.VOITURES_ACTIONS"
+Une commande de voiture est construite de la façon: "DIRECTIONS_VOITURES.VOITURES_ACTIONS"
 	DIRECTIONS_VOITURES = ("est", "ouest", "sud");
 	VOITURES_ACTIONS = ("attendV", "arrive", "tourneDroite", "tourneGauche", "continue");
 		exemples: est.arrive, sud.tourneDroite

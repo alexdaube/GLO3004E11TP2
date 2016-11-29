@@ -32,14 +32,11 @@ public class ValidateurEtatLumiere {
 				throw new CommandeNonCompleteException(IMPOSSIBLE_VERT + "est");
 			}
 		case JAUNE:
-			if (etatCourant == EtatIntersection.VRJ || etatCourant == EtatIntersection.VRR 
+			if (etatCourant == EtatIntersection.VRJ || etatCourant == EtatIntersection.VRR
 					|| etatCourant == EtatIntersection.VRV || etatCourant == EtatIntersection.VVR
-					|| etatCourant == EtatIntersection.VJR)
-			{
+					|| etatCourant == EtatIntersection.VJR) {
 				return true;
-			}
-			else
-			{
+			} else {
 				throw new CommandeNonCompleteException(IMPOSSIBLE_JAUNE + "est");
 			}
 		default:
@@ -51,12 +48,9 @@ public class ValidateurEtatLumiere {
 			throws CommandeNonCompleteException {
 		switch (couleurLumiere) {
 		case ROUGE:
-			if (etatCourant == EtatIntersection.JJR)
-			{
+			if (etatCourant == EtatIntersection.JJR) {
 				return true;
-			}
-			else
-			{
+			} else {
 				throw new CommandeNonCompleteException(IMPOSSIBLE_JAUNE + "ouest");
 			}
 		case VERT:
@@ -69,15 +63,12 @@ public class ValidateurEtatLumiere {
 		case CLIGNOTANT:
 			throw new CommandeNonCompleteException(IMPOSSIBLE_CLIGNOTANT + "ouest");
 		case JAUNE:
-			if (etatCourant == EtatIntersection.VVR || etatCourant == EtatIntersection.JVR)
-			{
+			if (etatCourant == EtatIntersection.VVR || etatCourant == EtatIntersection.JVR) {
 				return true;
-			}
-			else
-			{
+			} else {
 				throw new CommandeNonCompleteException(IMPOSSIBLE_JAUNE + "ouest");
 			}
-			
+
 		default:
 			throw new CommandeNonCompleteException(IMPOSSIBLE_GENERAL + "ouest");
 		}
@@ -94,12 +85,9 @@ public class ValidateurEtatLumiere {
 			}
 		case ROUGE:
 			if (etatCourant == EtatIntersection.CRJ || etatCourant == EtatIntersection.RRJ
-					|| etatCourant == EtatIntersection.VRJ)
-			{
+					|| etatCourant == EtatIntersection.VRJ) {
 				return true;
-			}
-			else
-			{
+			} else {
 				throw new CommandeNonCompleteException(IMPOSSIBLE_JAUNE + "sud");
 			}
 		case VERT:
@@ -112,12 +100,9 @@ public class ValidateurEtatLumiere {
 			}
 		case JAUNE:
 			if (etatCourant == EtatIntersection.VRV || etatCourant == EtatIntersection.CRV
-					|| etatCourant == EtatIntersection.RRV)
-			{
+					|| etatCourant == EtatIntersection.RRV) {
 				return true;
-			}
-			else
-			{
+			} else {
 				throw new CommandeNonCompleteException(IMPOSSIBLE_JAUNE + "sud");
 			}
 		default:
@@ -130,12 +115,9 @@ public class ValidateurEtatLumiere {
 		switch (couleurLumiere) {
 		case ROUGE:
 			if (etatCourant == EtatIntersection.JJR || etatCourant == EtatIntersection.JRJ
-					|| etatCourant == EtatIntersection.RRJ || etatCourant == EtatIntersection.RRR)
-			{
+					|| etatCourant == EtatIntersection.RRJ || etatCourant == EtatIntersection.RRR) {
 				return true;
-			}
-			else
-			{
+			} else {
 				throw new CommandeNonCompleteException(IMPOSSIBLE_ROUGE + "tous");
 			}
 		case PIETON:
